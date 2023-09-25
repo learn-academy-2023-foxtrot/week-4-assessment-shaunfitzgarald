@@ -15,43 +15,85 @@
 // a) Create a test with an expect statement using the variable provided.
 // HINT: Check out this resource: https://jestjs.io/docs/expect#expectarraycontainingarray
 
-const colors1 = ["purple", "blue", "green", "yellow", "pink"]
-// Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
-const colors2 = [
-  "chartreuse",
-  "indigo",
-  "periwinkle",
-  "ochre",
-  "aquamarine",
-  "saffron"
-]
-// Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
+// describe("arrayDeleteShuffle", () => {
+//   it("takes in an array, removes the first item from the array and shuffles the remaining items," () => {
+//     const colors1 = ["purple", "blue", "green", "yellow", "pink"]
+//     // Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
+//     const colors2 = [
+//       "chartreuse",
+//       "indigo",
+//       "periwinkle",
+//       "ochre",
+//       "aquamarine",
+//       "saffron"
+//     ]
+//     expect(arrayDeleteShuffle
+//   })
+// })
+// // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
-// b) Create the function that makes the test pass.
+// // b) Create the function that makes the test pass.
 
-// Pseudo code:
+// // Pseudo code:
+
+
+// const shuffledArray = arrayDeleteShuffle(inputArray)
+
+// const arrayDeleteShuffle = (arr) => {
+//   if (arr.length ,= 1) {
+//     return arr
+//   }
+//   const [removedItem, ...rest] = arr
+//   for (let i = rest.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random()* (i +i))
+//     [rest[i], rest[j]] = [rest[j], rest[i]]
+//   }
+//   return [removedItem, ...rest]
+// }
 
 // --------------------2) Create a function that takes in an object that contains up votes and down votes and returns the end tally.
 
 // a) Create a test with expect statements for each of the variables provided.
+describe('calculateTally', () => {
+  it("should calculate the tally correctly when upVotes are greater than downVotes", () => {
+    const votes = { upVotes: 13, downVotes: 2 }
+    const result = calculateTally(votes)
+    expect(result).toBe(11)
+  })
 
-const votes1 = { upVotes: 13, downVotes: 2 }
-// Expected output: 11
-const votes2 = { upVotes: 2, downVotes: 33 }
-// Expected output: -31
+  it("should calculate the tally correctly when downVotes are greater than upVotes", () => {
+    const votes = { upVotes: 2, downVotes: 33 }
+    const result = calculateTally(votes)
+    expect(result).toBe(-31)
+  })
+})
 
 // b) Create the function that makes the test pass.
 
-// Pseudo code:
 
+/*Pseudo code:
+name: calculateTally
+input: an object called votes
+output: a number which is the tally
+processs: It takes in an object called votes, it extracts the upVotes and the downVotes from it, it calculates the tally by subtracting downVotes from upVotes, and returns the tally.
+*/
+
+
+const calculateTally = (votes) => {
+  const { upVotes, downVotes } = votes
+  return upVotes - downVotes
+}
 // --------------------3) Create a function that takes in two arrays as arguments and returns one array with no duplicate values. STRETCH: Use the spread operator to pass in a dynamic number of arguments.
 
 // a) Create a test with an expect statement using the variables provided.
-
-const dataTypesArray1 = ["array", "object", "number", "string", "Boolean"]
-const dataTypesArray2 = ["string", "null", "Boolean", "string", "undefined"]
+describe('mergeArrays', () => {
+  it('should merge arrays and remove duplicates', () => {
+    const dataTypesArray1 = ["array", "object", "number", "string", "Boolean"]
+    const dataTypesArray2 = ["string", "null", "Boolean", "string", "undefined"]
 // Expected output: ["array", "object", "number", "string", "Boolean", "null", "undefined"]
 
 // b) Create the function that makes the test pass.
 
 // Pseudo code:
+
+const mergeArrays = (...arrays) => {[...new Set(arrays.flat())]}
