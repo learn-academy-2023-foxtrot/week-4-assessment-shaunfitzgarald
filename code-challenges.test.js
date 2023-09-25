@@ -94,6 +94,4 @@ describe('mergeArrays', () => {
 
 // b) Create the function that makes the test pass.
 
-// Pseudo code:
-
-const mergeArrays = (...arrays) => {[...new Set(arrays.flat())]}
+// Pseudo code: I'm having trouble getting good failure with this test.
