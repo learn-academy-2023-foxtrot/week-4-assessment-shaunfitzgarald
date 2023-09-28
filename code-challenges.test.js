@@ -90,8 +90,20 @@ describe('mergeArrays', () => {
   it('should merge arrays and remove duplicates', () => {
     const dataTypesArray1 = ["array", "object", "number", "string", "Boolean"]
     const dataTypesArray2 = ["string", "null", "Boolean", "string", "undefined"]
-// Expected output: ["array", "object", "number", "string", "Boolean", "null", "undefined"]
+    const expectedOutput = ["array", "object", "number", "string", "Boolean", "null", "undefined"]
+    expect(mergeArrays(dataTypesArray1, dataTypesArray2)).toEqual(expectedOutput);
+  });
+});
 
 // b) Create the function that makes the test pass.
+// 
+//Pseusdo code:
+//name: mergeArrays
+//input: two arrays
+//output: one array with no duplicate values
+//process: It takes in two arrays, it merges the arrays, it removes the duplicates, and returns the array with no duplicate values.
 
-// Pseudo code: I'm having trouble getting good failure with this test.
+const mergeArrays = (...arrays) => {
+  const mergedArray = [].concat(...arrays);
+  return [...new Set(mergedArray)];
+};
